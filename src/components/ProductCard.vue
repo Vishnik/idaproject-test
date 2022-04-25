@@ -47,12 +47,6 @@ export default {
       required: true,
       default: 0,
     },
-
-    currency: {
-      type: String,
-      required: true,
-      default: '',
-    },
   },
   setup(props, ctx) {
     const formatPrice = computed(() => `${props.price} руб.`);
