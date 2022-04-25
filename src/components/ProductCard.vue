@@ -76,13 +76,13 @@ export default {
   justify-content: flex-start;
   align-items: stretch;
   background: #FFFEFB;
-  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.04), 0 6px 10px rgba(0, 0, 0, 0.02);
   border-radius: 4px;
   font-family: 'Source Sans Pro', sans-serif;
   color: $main-text-color;
   transition: all 0.25s ease;
   &:hover {
-    box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.12), 0px 6px 10px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.12), 0 6px 10px rgba(0, 0, 0, 0.06);
     .product-card__delete-btn {
       display: block;
     }
@@ -103,7 +103,7 @@ export default {
   }
   &__img-wrap {
     width: 100%;
-    height: 0px;
+    height: 0;
     padding-bottom: 60.240963855%;
     position: relative;
     border-radius: 4px 4px 0 0;
@@ -138,7 +138,7 @@ export default {
 
   &__description {
     margin-top: 16px;
-    margin-bottom: 0;
+    margin-bottom: 32px;
     flex-grow: 1;
     font-style: normal;
     font-weight: 400;
