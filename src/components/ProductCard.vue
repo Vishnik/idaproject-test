@@ -1,7 +1,7 @@
 <template>
 <article class="product-card">
   <div class="product-card__delete-btn">
-    <v-badge style="cursor: pointer;" type="danger">
+    <v-badge @click="deleteProduct" style="cursor: pointer;" type="danger">
       <img src="../assets/images/trash-bin-icon.svg" alt="Delete product">
     </v-badge>
   </div>
@@ -54,11 +54,15 @@ export default {
       default: '',
     },
   },
-  setup(props) {
-    const formatPrice = computed(() => `${props.price} ${props.currency}`);
+  setup(props, ctx) {
+    const formatPrice = computed(() => `${props.price} руб.`);
+    const deleteProduct = () => {
+      ctx.emit('delete');
+    };
 
     return {
       formatPrice,
+      deleteProduct,
     };
   },
 };
