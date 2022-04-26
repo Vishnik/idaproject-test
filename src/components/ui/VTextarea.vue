@@ -43,6 +43,7 @@ export default {
 .v-input {
   @include input();
   height: 100%;
+  min-height: 108px;
   resize: none;
 }
 </style>
