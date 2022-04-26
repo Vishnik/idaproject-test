@@ -86,11 +86,14 @@ export default {
 .v-select {
   display: block;
   position: relative;
+  background: #fff;
+  border-radius: 4px;
   .v-select__current {
     @include input();
     &-label {
       color: $light-text-color;
       user-select: none;
+      background: #fff;
     }
   }
 
@@ -126,6 +129,8 @@ export default {
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     overflow: hidden;
+    background: #fff;
+    z-index: 999;
     &_expanded {
       display: flex;
     }
