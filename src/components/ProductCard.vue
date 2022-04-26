@@ -6,7 +6,7 @@
     </v-badge>
   </div>
   <div class="product-card__img-wrap">
-    <img :src="image" :alt="title" class="product-card__img">
+    <img :src="image" @error="onImageLoadError" :alt="title" class="product-card__img">
   </div>
   <main class="product-card__content">
     <h3 class="product-card__title">{{ title }}</h3>
@@ -20,6 +20,7 @@
 import { computed } from 'vue';
 
 import VBadge from './ui/VBadge.vue';
+import NoImage from '../assets/images/no-image.png';
 
 export default {
   name: 'ProductCard',
@@ -54,9 +55,14 @@ export default {
       ctx.emit('delete');
     };
 
+    const onImageLoadError = (e) => {
+      e.target.src = NoImage;
+    };
+
     return {
       formatPrice,
       deleteProduct,
+      onImageLoadError,
     };
   },
 };
