@@ -118,7 +118,6 @@ export default {
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    margin-right: 16px;
     z-index: 3;
     background: #e5e5e5;
     padding-left: 10px;
@@ -131,6 +130,8 @@ export default {
     @include respond-to('lg') {
       top: 0;
       padding-left: 0;
+      padding-right: 0;
+      margin-right: 16px;
       position: sticky;
       transform: none;
     }
