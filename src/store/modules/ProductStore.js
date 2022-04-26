@@ -9,6 +9,14 @@ const ProductStore = {
     products(state) {
       return state.products;
     },
+    sortedByAscPriceProducts(state) {
+      const productsCopy = [...state.products];
+      return productsCopy.sort((productOne, productTwo) => productOne.price - productTwo.price);
+    },
+    sortedByDecPriceProducts(state) {
+      const productsCopy = [...state.products];
+      return productsCopy.sort((productOne, productTwo) => productTwo.price - productOne.price);
+    },
   },
   actions: {
     fetchProducts({ commit }) {
