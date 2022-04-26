@@ -143,6 +143,8 @@ export default {
     align-items: stretch;
     justify-content: flex-start;
     flex-grow: 1;
+    position: relative;
+    min-height: 100vh;
   }
 
   &__header {
