@@ -1,0 +1,29 @@
+@import "../common";
+
+@mixin input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 9px 10px 10px 16px;
+  position: relative;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid transparent;
+  transition: box-shadow  ease 0.25s;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 12px;
+  color: $main-text-color;
+  line-height: 15px;
+  &_invalid {
+    border-color: $danger-color;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+  }
+
+  &::placeholder {
+    color: $light-text-color;
+  }
+}
