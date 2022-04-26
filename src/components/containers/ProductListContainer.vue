@@ -1,18 +1,24 @@
 <template>
-    <product-list @delete-product="onDeleteProduct" :products="sortedProducts"></product-list>
+    <v-loader v-if="isProductsLoading"></v-loader>
+    <product-list
+      v-else
+      @delete-product="onDeleteProduct"
+      :products="sortedProducts"></product-list>
 </template>
 
 <script>
-import { computed, onBeforeMount } from 'vue';
+import { computed, onBeforeMount, ref } from 'vue';
 import { useStore } from 'vuex';
 import ProductSortOptions from '../../utils/ProductSortOptions';
 
 import ProductList from '../ProductList.vue';
+import VLoader from '../ui/VLoader.vue';
 
 export default {
   name: 'ProductListContainer',
   components: {
     ProductList,
+    VLoader,
   },
 
   props: {
@@ -25,11 +31,14 @@ export default {
 
   setup(props) {
     const store = useStore();
+    const isProductsLoading = ref(true);
     const products = computed(() => store.getters['ProductStore/products']);
 
     onBeforeMount(() => {
       if (!products.value.length) {
-        store.dispatch('ProductStore/fetchProducts');
+        store.dispatch('ProductStore/fetchProducts').then(() => {
+          isProductsLoading.value = false;
+        });
       }
     });
 
@@ -50,6 +59,7 @@ export default {
     return {
       onDeleteProduct,
       sortedProducts,
+      isProductsLoading,
     };
   },
 };
