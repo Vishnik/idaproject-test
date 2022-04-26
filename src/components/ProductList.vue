@@ -1,19 +1,19 @@
 <template>
-<div class="product-list">
-  <div
-    v-for="product in products"
-    :key="product.id"
-    class="product-list__item"
-  >
-    <ProductCard
-      :title="product.title"
-      :description="product.description"
-      :image="product.image"
-      :price="product.price"
-      @delete="onDelete(product.id)"
-    />
-  </div>
-</div>
+  <TransitionGroup name="list" class="product-list" tag="div">
+    <div
+      v-for="product in products"
+      :key="product.id"
+      class="product-list__item"
+    >
+      <ProductCard
+        :title="product.title"
+        :description="product.description"
+        :image="product.image"
+        :price="product.price"
+        @delete="onDelete(product.id)"
+      />
+    </div>
+  </TransitionGroup>
 </template>
 
 <script>
@@ -62,4 +62,18 @@ export default {
     --min-product-card-width: 332px;
   }
 }
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(-30px) scale(0.9);
+}
+
+.product-list__item {
+  transition: all ease 0.5s;
+}
+
 </style>
