@@ -1,4 +1,5 @@
 import productsMock from '../../mocks/products';
+import sleep from '../../utils/sleep';
 
 const ProductStore = {
   namespaced: true,
@@ -28,15 +29,16 @@ const ProductStore = {
     },
   },
   actions: {
-    fetchProducts({ commit }) {
+    async fetchProducts({ commit }) {
       const localStorageProducts = localStorage.getItem('products');
       if (localStorageProducts) {
         commit('SET_PRODUCTS', JSON.parse(localStorageProducts));
-      } else {
-        setTimeout(() => {
-          commit('SET_PRODUCTS', productsMock);
-        }, 2000);
+        return JSON.parse(localStorageProducts);
       }
+
+      await sleep(60000);
+      commit('SET_PRODUCTS', productsMock);
+      return productsMock;
     },
 
     addProduct({ getters, commit }, product) {
