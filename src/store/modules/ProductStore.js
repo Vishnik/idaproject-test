@@ -17,6 +17,15 @@ const ProductStore = {
       const productsCopy = [...state.products];
       return productsCopy.sort((productOne, productTwo) => productTwo.price - productOne.price);
     },
+
+    sortedByTitleProducts(state) {
+      const productsCopy = [...state.products];
+      return productsCopy.sort((productOne, productTwo) => {
+        const productOneLowerTitle = productOne.title.toLowerCase();
+        const productTwoLowerTitle = productTwo.title.toLowerCase();
+        return productOneLowerTitle.localeCompare(productTwoLowerTitle);
+      });
+    },
   },
   actions: {
     fetchProducts({ commit }) {

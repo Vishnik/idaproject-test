@@ -3,6 +3,8 @@ class ProductSortOptions {
 
   static PRICE_DEC = 'price:dec';
 
+  static TITLE = 'title';
+
   static NOT_SORTING = '';
 }
 

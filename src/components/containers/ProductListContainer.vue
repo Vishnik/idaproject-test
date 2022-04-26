@@ -40,6 +40,10 @@ export default {
         label: 'По цене max',
         value: ProductSortOptions.PRICE_DEC,
       },
+      {
+        label: 'По названию',
+        value: ProductSortOptions.TITLE,
+      },
     ];
 
     const currentSortValue = ref(sortOptions[0].value);
@@ -58,6 +62,7 @@ export default {
       switch (currentSortValue.value) {
         case ProductSortOptions.PRICE_DEC: return store.getters['ProductStore/sortedByDecPriceProducts'];
         case ProductSortOptions.PRICE_ASC: return store.getters['ProductStore/sortedByAscPriceProducts'];
+        case ProductSortOptions.TITLE: return store.getters['ProductStore/sortedByTitleProducts'];
         case ProductSortOptions.NOT_SORTING: return products.value;
         default: return products.value;
       }
