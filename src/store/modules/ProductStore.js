@@ -41,7 +41,7 @@ const ProductStore = {
 
     addProduct({ getters, commit }, product) {
       if (!product) return;
-      const newProducts = [...getters.products, product];
+      const newProducts = [product, ...getters.products];
       commit('SET_PRODUCTS', newProducts);
     },
 
