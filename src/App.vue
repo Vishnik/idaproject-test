@@ -69,7 +69,7 @@ export default {
       },
     ];
     const currentSortValue = ref(sortOptions[0].value);
-    const isSidebarOpen = ref(true);
+    const isSidebarOpen = ref(false);
 
     watch(currentSortValue, () => {
       scrollToTop();
