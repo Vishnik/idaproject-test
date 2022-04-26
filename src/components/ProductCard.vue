@@ -18,6 +18,7 @@
 
 <script>
 import { computed } from 'vue';
+import NumberFormatter from '../utils/NumberFormatter';
 
 import VBadge from './ui/VBadge.vue';
 import NoImage from '../assets/images/no-image.png';
@@ -50,7 +51,10 @@ export default {
     },
   },
   setup(props, ctx) {
-    const formatPrice = computed(() => `${props.price} руб.`);
+    const formatPrice = computed(() => {
+      const formatPriceNumber = NumberFormatter.formatNumber(props.price);
+      return `${formatPriceNumber} руб.`;
+    });
     const deleteProduct = () => {
       ctx.emit('delete');
     };
