@@ -12,7 +12,7 @@ const products = [
     title: 'Наименование товара',
     description: 'Довольно-таки интересное описание товара в несколько строк.',
     image: 'https://traum-deutung.de/wp-content/uploads/2017/08/traum-fotoapparat-deutung-symbol.jpg',
-    price: 10000,
+    price: 9000,
   },
 
   {
@@ -20,7 +20,7 @@ const products = [
     title: 'Наименование товара',
     description: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
     image: 'https://traum-deutung.de/wp-content/uploads/2017/08/traum-fotoapparat-deutung-symbol.jpg',
-    price: 10000,
+    price: 11000,
   },
 
   {
@@ -28,7 +28,7 @@ const products = [
     title: 'Наименование товара',
     description: 'Довольно-таки интересное описание товара в несколько строк.',
     image: 'https://traum-deutung.de/wp-content/uploads/2017/08/traum-fotoapparat-deutung-symbol.jpg',
-    price: 10000,
+    price: 20000,
   },
 
   {
@@ -36,7 +36,7 @@ const products = [
     title: 'Наименование товара',
     description: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
     image: 'https://traum-deutung.de/wp-content/uploads/2017/08/traum-fotoapparat-deutung-symbol.jpg',
-    price: 10000,
+    price: 15000,
   },
 
   {
@@ -44,7 +44,7 @@ const products = [
     title: 'Наименование товара',
     description: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
     image: 'https://traum-deutung.de/wp-content/uploads/2017/08/traum-fotoapparat-deutung-symbol.jpg',
-    price: 10000,
+    price: 14000,
   },
 
   {
@@ -52,7 +52,7 @@ const products = [
     title: 'Наименование товара',
     description: 'Довольно-таки интересное описание товара в несколько строк.',
     image: 'https://traum-deutung.de/wp-content/uploads/2017/08/traum-fotoapparat-deutung-symbol.jpg',
-    price: 10000,
+    price: 17000,
   },
 
   {
@@ -119,7 +119,7 @@ const products = [
   },
 
   {
-    id: '11',
+    id: '16',
     title: 'Наименование товара',
     description: 'Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк',
     image: 'https://traum-deutung.de/wp-content/uploads/2017/08/traum-fotoapparat-deutung-symbol.jpg',
