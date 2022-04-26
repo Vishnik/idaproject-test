@@ -36,7 +36,7 @@ const ProductStore = {
         return JSON.parse(localStorageProducts);
       }
 
-      await sleep(60000);
+      await sleep(2000);
       commit('SET_PRODUCTS', productsMock);
       return productsMock;
     },
