@@ -1,2 +1,18 @@
 @import "./fonts";
 @import "./vars";
+
+body {
+  margin: 0;
+  background: #e5e5e5;
+}
+
+#notification {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: $main-text-color;
+  z-index: 9999;
+}

@@ -11,11 +11,7 @@
 
 <script>
 import { computed } from 'vue';
-
-function formatNumberDigit(number) {
-  if (!number) return '';
-  return number.toLocaleString('ru-RU');
-}
+import NumberFormatter from '../../utils/NumberFormatter';
 
 export default {
   name: 'VInputPrice',
@@ -37,7 +33,9 @@ export default {
       'v-input_invalid': props.isValid === false,
     }));
 
-    const processedNumber = computed(() => formatNumberDigit(parseInt(props.modelValue, 10)));
+    const processedNumber = computed(
+      () => NumberFormatter.formatNumber(parseInt(props.modelValue, 10)),
+    );
 
     const onInput = (e) => {
       const formatNumberString = e.target.value;

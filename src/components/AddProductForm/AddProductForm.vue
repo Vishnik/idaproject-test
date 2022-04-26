@@ -126,6 +126,13 @@ export default {
       });
     };
 
+    const clearForm = () => {
+      Object.keys(form).forEach((formFieldName) => {
+        form[formFieldName].value = null;
+        form[formFieldName].isValid = null;
+      });
+    };
+
     watch(form, () => {
       checkForm();
     });
@@ -135,8 +142,10 @@ export default {
         title: form.title.value,
         description: form.description.value,
         image: form.image.value,
-        price: form.price.value,
+        price: parseInt(form.price.value, 10),
       });
+
+      clearForm();
     };
 
     // eslint-disable-next-line max-len

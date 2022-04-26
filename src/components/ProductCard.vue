@@ -1,12 +1,12 @@
 <template>
 <article class="product-card">
   <div class="product-card__delete-btn">
-    <v-badge style="cursor: pointer;" type="danger">
+    <v-badge @click="deleteProduct" style="cursor: pointer;" type="danger">
       <img src="../assets/images/trash-bin-icon.svg" alt="Delete product">
     </v-badge>
   </div>
   <div class="product-card__img-wrap">
-    <img :src="image" :alt="title" class="product-card__img">
+    <img :src="image" @error="onImageLoadError" :alt="title" class="product-card__img">
   </div>
   <main class="product-card__content">
     <h3 class="product-card__title">{{ title }}</h3>
@@ -18,8 +18,10 @@
 
 <script>
 import { computed } from 'vue';
+import NumberFormatter from '../utils/NumberFormatter';
 
 import VBadge from './ui/VBadge.vue';
+import NoImage from '../assets/images/no-image.png';
 
 export default {
   name: 'ProductCard',
@@ -47,18 +49,24 @@ export default {
       required: true,
       default: 0,
     },
-
-    currency: {
-      type: String,
-      required: true,
-      default: '',
-    },
   },
-  setup(props) {
-    const formatPrice = computed(() => `${props.price} ${props.currency}`);
+  setup(props, ctx) {
+    const formatPrice = computed(() => {
+      const formatPriceNumber = NumberFormatter.formatNumber(props.price);
+      return `${formatPriceNumber} руб.`;
+    });
+    const deleteProduct = () => {
+      ctx.emit('delete');
+    };
+
+    const onImageLoadError = (e) => {
+      e.target.src = NoImage;
+    };
 
     return {
       formatPrice,
+      deleteProduct,
+      onImageLoadError,
     };
   },
 };
@@ -78,13 +86,13 @@ export default {
   justify-content: flex-start;
   align-items: stretch;
   background: #FFFEFB;
-  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.04), 0 6px 10px rgba(0, 0, 0, 0.02);
   border-radius: 4px;
   font-family: 'Source Sans Pro', sans-serif;
   color: $main-text-color;
   transition: all 0.25s ease;
   &:hover {
-    box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.12), 0px 6px 10px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.12), 0 6px 10px rgba(0, 0, 0, 0.06);
     .product-card__delete-btn {
       display: block;
     }
@@ -105,7 +113,7 @@ export default {
   }
   &__img-wrap {
     width: 100%;
-    height: 0px;
+    height: 0;
     padding-bottom: 60.240963855%;
     position: relative;
     border-radius: 4px 4px 0 0;
@@ -140,7 +148,7 @@ export default {
 
   &__description {
     margin-top: 16px;
-    margin-bottom: 0;
+    margin-bottom: 32px;
     flex-grow: 1;
     font-style: normal;
     font-weight: 400;
